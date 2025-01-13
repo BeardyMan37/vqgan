@@ -39,11 +39,11 @@ class CalculateSpanOfVQGAN:
                         alpha = 4/avg_count
                         avg_representation = (1 - alpha) * avg_representation + alpha * averaged_images
 
-        pca = PCA(n_components=128)
+        pca = PCA(n_components=216)
         pca_result = pca.fit_transform(avg_representation.cpu().numpy())
         print(pca_result.shape)
         print(pca_result)
-        torch.save({'span': pca_result}, os.path.join("checkpoints", f"vqgan_span.pt"))
+        torch.save({'span': pca_result}, os.path.join("checkpoints", f"vqgan_span_216.pt"))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="VQGAN Span")

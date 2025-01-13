@@ -174,7 +174,7 @@ class TrainVQGAN:
         self.discriminator = Discriminator(args).to(device=args.device)
         self.perceptual_loss = LPIPS().eval().to(device=args.device)
         self.opt_vq, self.opt_disc = self.configure_optimizers(args)
-        self.span = torch.tensor(torch.load('checkpoints/vqgan_span.pt')['span']).to(device=args.device)
+        self.span = torch.tensor(torch.load('checkpoints/vqgan_span_216.pt')['span']).to(device=args.device)
 
         # self.usage_codebook = np.zeros(shape=(args.num_codebook_vectors))
 
